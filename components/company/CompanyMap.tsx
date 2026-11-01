@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { initCompanyMap } from "@/lib/engines/company";
+import ThemeToggle from "@/components/ThemeToggle";
 
 /** The brain-shaped company map: departments as lobes, jobs/agents/tools as neurons, drill down to each job's rules. */
 export default function CompanyMap() {
@@ -23,6 +24,7 @@ export default function CompanyMap() {
         <div className="top__right">
           <span className="sample mono"><i />Sample data</span>
           <a className="top__site mono" href="/">zariva.ai</a>
+          <span className="top__theme"><ThemeToggle /></span>
           <a className="top__cta" href="/#contact">Book a call <span aria-hidden="true">↗</span></a>
         </div>
       </header>

@@ -9,6 +9,8 @@
   --sans:var(--font-inter),system-ui,sans-serif; --display:var(--font-outfit),var(--font-inter),system-ui,sans-serif;
   --mono:var(--font-geist-mono),ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --top-h:56px; --side-w:400px;
+  --paper:#ffffff; --surface-2:#eaeadf; --topbar:rgba(247,247,241,.92); --warm-soft:#fdebd1;
+  --mesh:#002200; --edge-co:rgba(61,116,0,.28);
   color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -23,7 +25,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 .muted{color:var(--muted)}
 
 /* TOP BAR */
-.top{position:sticky;top:0;z-index:20;height:var(--top-h);display:flex;align-items:center;gap:20px;padding:0 18px 0 0;background:rgba(247,247,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.top{position:sticky;top:0;z-index:20;height:var(--top-h);display:flex;align-items:center;gap:20px;padding:0 18px 0 0;background:var(--topbar);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
 .top__left{display:flex;align-items:center;gap:12px;min-width:0;height:100%}
 .top__logo{display:flex;align-items:center;height:100%;padding:0 18px;background:var(--brand)}
 .top__logo img{height:26px;width:auto;display:block}
@@ -57,9 +59,9 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 /* Neuron mesh (brain) */
 #mesh{transition:opacity .7s ease}
 #map:not([data-level="company"]) #mesh{opacity:.12}
-#mesh line{stroke:var(--brand);stroke-opacity:.2;stroke-width:.7}
+#mesh line{stroke:var(--mesh);stroke-opacity:.2;stroke-width:.7}
 #mesh line.rim{stroke-opacity:.32}
-#mesh circle{fill:var(--brand);fill-opacity:.6}
+#mesh circle{fill:var(--mesh);fill-opacity:.6}
 
 /* In the brain view, jobs, agents and tools become neurons: small dots, no glyphs */
 .node .ring{transition:fill .25s,stroke .25s,r .6s ease}
@@ -71,7 +73,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 #map[data-level="company"] .node:is(.t-job,.t-worker,.t-tool) .glyph{opacity:0}
 #map[data-level="company"] .node:is(.t-job,.t-worker,.t-tool):hover .ring{r:6px;fill:var(--lime);stroke:var(--brand)}
 #map[data-level="company"] .node.hi:is(.t-job,.t-worker,.t-tool) .ring{fill:var(--lime);stroke:var(--brand)}
-#map[data-level="company"] .edge{stroke:rgba(61,116,0,.28)}
+#map[data-level="company"] .edge{stroke:var(--edge-co)}
 #map[data-level="company"] .edge.hi{stroke:var(--accent);stroke-width:1.6}
 #map[data-level="company"] .node.t-dept .ring{r:20px;stroke-width:2;fill:var(--card);stroke:var(--brand)}
 #map[data-level="company"] .node.t-dept .lbl{font-size:16px}
@@ -113,7 +115,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 .node .hubdot{fill:var(--orange)}
 .node:hover .ring,.node:focus-visible .ring,.node.sel .ring{stroke:var(--accent);fill:var(--card-2)}
 .node.t-hub:hover .ring{fill:var(--brand)}
-.node.person:hover .ring,.node.person.sel .ring{stroke:var(--person);fill:#fdebd1}
+.node.person:hover .ring,.node.person.sel .ring{stroke:var(--person);fill:var(--warm-soft)}
 .node.sel .ring{stroke-width:2.4}
 .node.hi .ring{stroke:var(--accent)}
 .node.person.hi .ring{stroke:var(--person)}
@@ -184,7 +186,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 .who small{color:var(--muted)}
 .mode{display:inline-block;margin:0 0 10px;padding:3px 9px;border-radius:999px;font:500 10.5px var(--mono);text-transform:uppercase;letter-spacing:.05em}
 .mode.runs{background:var(--card-2);color:var(--accent)}
-.mode.approve{background:#fdebd1;color:var(--person-ink)}
+.mode.approve{background:var(--warm-soft);color:var(--person-ink)}
 .mode.person{background:var(--orange);color:var(--brand)}
 .rules{list-style:none;margin:0;padding:0;counter-reset:r}
 .rules li{counter-increment:r;display:grid;grid-template-columns:30px 1fr;padding:9px 0;border-bottom:1px solid var(--rule-2);font-size:14.5px}
@@ -229,3 +231,35 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+
+/* ---------- dark theme (same switch as the home page: saved choice, else the system setting) ---------- */
+:root[data-theme="dark"]{
+  --bg:#061206; --bg-2:#0b1a0b; --panel:#0b1a0b; --card:#0f220f; --card-2:#17320c; --paper:#0f220f; --surface-2:#132a13;
+  --ink:#F1F1E9; --muted:#a8b5a3; --soft:#8e9d8a;
+  --rule:rgba(241,241,233,.14); --rule-2:rgba(241,241,233,.07);
+  --accent:#79D900; --person:#FF9100; --person-ink:#ffb04d;
+  --edge:rgba(241,241,233,.16); --edge-hi:#79D900; --edge-co:rgba(121,217,0,.30);
+  --topbar:rgba(6,18,6,.88); --warm-soft:#3a2a10; --mesh:#F1F1E9;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#061206; --bg-2:#0b1a0b; --panel:#0b1a0b; --card:#0f220f; --card-2:#17320c; --paper:#0f220f; --surface-2:#132a13;
+  --ink:#F1F1E9; --muted:#a8b5a3; --soft:#8e9d8a;
+  --rule:rgba(241,241,233,.14); --rule-2:rgba(241,241,233,.07);
+  --accent:#79D900; --person:#FF9100; --person-ink:#ffb04d;
+  --edge:rgba(241,241,233,.16); --edge-hi:#79D900; --edge-co:rgba(121,217,0,.30);
+  --topbar:rgba(6,18,6,.88); --warm-soft:#3a2a10; --mesh:#F1F1E9;
+  color-scheme:dark;
+}}
+/* dark: the mesh is drawn in light ink, a touch fainter; neurons and highlights stay readable */
+:root[data-theme="dark"] #mesh line{stroke-opacity:.14}
+:root[data-theme="dark"] #mesh circle{fill-opacity:.45}
+:root[data-theme="dark"] #map[data-level="company"] .node:is(.t-job,.t-worker,.t-tool) .ring{stroke:var(--bg)}
+:root[data-theme="dark"] #map[data-level="company"] .node.t-tool .ring{fill:#6f8a6b}
+:root[data-theme="dark"] #map[data-level="company"] .node.t-worker:not(.person) .ring{fill:#cfe8b0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #mesh line{stroke-opacity:.14}:root:not([data-theme="light"]) #mesh circle{fill-opacity:.45}
+  :root:not([data-theme="light"]) #map[data-level="company"] .node:is(.t-job,.t-worker,.t-tool) .ring{stroke:var(--bg)}
+  :root:not([data-theme="light"]) #map[data-level="company"] .node.t-tool .ring{fill:#6f8a6b}
+  :root:not([data-theme="light"]) #map[data-level="company"] .node.t-worker:not(.person) .ring{fill:#cfe8b0}}
+/* theme toggle in the top bar */
+.top__theme{display:flex;align-items:center}

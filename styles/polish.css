@@ -108,3 +108,59 @@ body{background-image:none}                        /* the dot pattern already gi
 .hero__brand .hero__logo{margin-bottom:0}
 .hero__brand .crew{position:relative;left:auto;top:auto;flex:none;transform:translateY(-6px)}
 @media (max-width:620px){.hero__brand{gap:10px}.hero__brand .crew{width:34px!important}.hero__brand .crew svg{width:34px;height:auto}}
+
+/* ---------- Our projects + lanyard ID card (components/home/Projects, components/sketch/Lanyard) ---------- */
+.projects__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center}
+.project-row{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.project-row__n{font-size:13px;color:var(--accent);padding-top:6px}
+.project-row h3{margin:0 0 6px;font-family:var(--display);font-weight:500;font-size:24px;letter-spacing:-.02em}
+.project-row p{margin:0 0 12px;color:var(--muted);max-width:46ch}
+.projects__more{color:var(--soft);margin-top:18px}
+
+.lanyard{display:flex;flex-direction:column;align-items:center;gap:14px}
+.lanyard__stage{position:relative;width:100%;max-width:440px;height:660px;touch-action:none}
+.lanyard__strap{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.lanyard__band{fill:var(--brand)}
+:root[data-theme="dark"] .lanyard__band{fill:#1c4d1c}
+.lanyard__stitch{fill:none;stroke:var(--lime);stroke-width:1.4;stroke-dasharray:5 6;opacity:.75}
+.lanyard__hook{position:absolute;left:50%;top:-6px;width:34px;height:12px;transform:translateX(-50%);border-radius:0 0 8px 8px;background:var(--ink)}
+.lanyard__card-wrap{position:absolute;left:50%;top:150px;width:280px;margin-left:-140px;transform-origin:50% 0;cursor:grab;user-select:none;-webkit-user-select:none}
+.lanyard__card-wrap:active{cursor:grabbing}
+.lanyard__clip{position:absolute;left:50%;top:-16px;z-index:2;width:30px;height:24px;transform:translateX(-50%);border-radius:6px 6px 4px 4px;
+  background:linear-gradient(180deg,#d9dccf,#9aa395);border:1.5px solid #5c6658;box-shadow:inset 0 2px 0 rgba(255,255,255,.6)}
+.lanyard__card{position:relative;width:280px;height:430px;transform-style:preserve-3d}
+.lanyard__face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;overflow:hidden;
+  border:1.5px solid var(--ink);box-shadow:0 2px 0 var(--ink),0 30px 50px -28px rgba(0,34,0,.6)}
+.lanyard__face--back{transform:rotateY(180deg)}
+.lanyard__flip{border:1.5px solid var(--rule);border-radius:999px;background:var(--paper);padding:7px 14px;color:var(--muted);text-transform:none;letter-spacing:0;font-size:12.5px}
+.lanyard__flip:hover{border-color:var(--ink);color:var(--ink)}
+.lanyard__hint{color:var(--soft)}
+
+/* card faces */
+.idcard{position:relative;height:100%;display:flex;flex-direction:column;gap:6px;padding:30px 18px 18px;background:var(--paper);color:var(--ink)}
+.idcard__slot{position:absolute;left:50%;top:10px;width:46px;height:8px;margin-left:-23px;border-radius:6px;background:var(--surface-2);box-shadow:inset 0 1px 2px rgba(0,0,0,.25)}
+.idcard__top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);margin-bottom:4px}
+.idcard__live{display:inline-flex;align-items:center;gap:6px;color:var(--accent)}
+.idcard__live i{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px rgba(121,217,0,.25)}
+.idcard__name{margin:0;font-family:var(--display);font-weight:600;font-size:38px;letter-spacing:.02em;line-height:1}
+.idcard__sub{margin:0 0 8px;color:var(--muted);font-size:13.5px}
+.idcard__preview{flex:1;display:flex;flex-direction:column;border:1.5px solid var(--ink);border-radius:12px;overflow:hidden;background:#fff;min-height:0}
+.idcard__bar{display:flex;align-items:center;gap:5px;padding:6px 8px;border-bottom:1px solid var(--rule);background:var(--surface-2);font:10.5px var(--mono);color:var(--muted)}
+.idcard__bar i{width:7px;height:7px;border-radius:50%;background:var(--rule)}
+.idcard__bar span{margin-left:6px;padding:1px 8px;border-radius:999px;background:var(--paper)}
+.idcard__screen{position:relative;flex:1;overflow:hidden}
+/* render the site at desktop width (1280px) and scale it down to the card */
+.idcard__screen iframe{position:absolute;left:0;top:0;width:1280px;height:1600px;border:0;transform:scale(.1875);transform-origin:0 0;pointer-events:none;background:#fff}
+.idcard__link{display:inline-flex;justify-content:center;align-items:center;gap:6px;margin-top:10px;height:40px;border-radius:999px;background:var(--brand);color:var(--cream);font-weight:600;font-size:14px;text-decoration:none;box-shadow:0 2px 0 var(--lime)}
+.idcard__link:hover{transform:translateY(-1px);box-shadow:0 3px 0 var(--lime)}
+.idcard--back{align-items:center;justify-content:center;text-align:center;gap:12px;background:radial-gradient(ellipse at 50% 40%,#0b3a0b,#002200 70%);color:var(--cream)}
+.idcard--back .idcard__slot{background:#001500}
+.idcard__logo{width:170px;height:auto}
+.idcard__built{margin:0;color:var(--lime)}
+.idcard__motto{margin:6px 0 0;font-family:var(--display);font-size:18px;line-height:1.3;color:#e7ece2}
+.idcard__barcode{display:flex;align-items:stretch;gap:2px;height:38px;margin-top:18px}
+.idcard__barcode i{display:block;background:#e7ece2;opacity:.85}
+.idcard__id{margin:0;color:#b9c7b3}
+
+@media (max-width:980px){.projects__grid{grid-template-columns:1fr}.lanyard__stage{height:620px}}
+@media (max-width:420px){.lanyard__card-wrap{scale:.9}}

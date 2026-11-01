@@ -94,7 +94,6 @@ export default function Hero() {
           <InkLogo height={58} className="hero__logo" />
           <Crew kind="dot" size={40} says="I'm the dot in zariva. Hi!" />
         </div>
-        <p className="bracket mono">[ AI-powered technology & growth partner ]</p>
         <h1 className="hero__h1">
           <span className="h1__fixed">We engineer your</span>
           <span className="rot" aria-live="polite">

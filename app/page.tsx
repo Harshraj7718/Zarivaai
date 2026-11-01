@@ -10,6 +10,7 @@ import Contact from "@/components/home/Contact";
 import Testimonials from "@/components/home/Testimonials";
 import WorkWithUs from "@/components/home/WorkWithUs";
 import Industries from "@/components/home/Industries";
+import Projects from "@/components/home/Projects";
 import Dock from "@/components/home/Dock";
 import Reveals from "@/components/home/Reveals";
 import DoodleFooter from "@/components/DoodleFooter";
@@ -32,6 +33,7 @@ export default function Home() {
         <WhyUs />
         <GlobalReach />
         <Process />
+        <Projects />
         <Testimonials />
         <WorkWithUs />
         <Contact />
