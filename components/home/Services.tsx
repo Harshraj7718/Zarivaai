@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SaasDemo, ChatDemo, KanbanDemo, DeployLog } from "./ServiceDemos";
 import { SERVICE_EVENT } from "@/lib/events";
-import Doodles from "@/components/sketch/Doodles";
 
 type Panel = { tab: string; step: string; title: string; body: string; get: string; link: [string, string]; demo: React.ReactNode };
 
@@ -124,7 +123,6 @@ export default function Services() {
   const p = PANELS[active];
   return (
     <section id="services" className="sec">
-      <Doodles items={[{ kind: "cog", left: "86%", top: "5%", size: 34 }, { kind: "bolt", left: "70%", top: "11%" }, { kind: "leaf", left: "2%", top: "40%" }]} />
       <div className="wrap">
         <div data-reveal>
           <p className="kicker mono"><i />Our services</p>

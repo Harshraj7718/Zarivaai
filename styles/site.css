@@ -2,10 +2,10 @@
 :root{
   --brand:#002200; --brand-2:#063306; --lime:#79D900; --orange:#FF9100; --cream:#F1F1E9;
   --ground:#F1F1E9; --surface:#f7f7f1; --surface-2:#eaeadf; --paper:#ffffff;
-  --ink:#0d240d; --ink-2:#1d3a1d; --muted:#4d5c4b; --soft:#6f7d6c;
+  --ink:#0d240d; --ink-2:#1d3a1d; --muted:#4d5c4b; --soft:#5b695a;
   --rule:rgba(13,36,13,.18); --rule-2:rgba(13,36,13,.1); --grid:rgba(13,36,13,.07);
   --accent:#3d7400; --accent-soft:#e4f3cc; --warm:#9a5600; --warm-soft:#fdebd1;
-  --info:#2f5f8f; --info-soft:#e3edf7; --stamp:#c45f00;
+  --info:#2f5f8f; --info-soft:#e3edf7; --stamp:#a14d00;
   --hero-tint:#e9eedb;
   --shadow-ledger:3px 3px 0 var(--brand);
   --shadow-soft:0 1px 2px rgba(0,30,0,.06),0 10px 30px -18px rgba(0,30,0,.3);

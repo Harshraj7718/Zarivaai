@@ -4,6 +4,7 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 import Cursor from "@/components/Cursor";
 import InkDefs from "@/components/sketch/InkDefs";
 import SiteDots from "@/components/SiteDots";
+import Loader from "@/components/Loader";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
@@ -28,8 +29,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: `try{var t=localStorage.getItem('zariva-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}`,
           }}
         />
+        {/* the loading screen shows once per session; skip it before paint on repeat visits or with reduced motion */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem('zariva-loaded')||matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('zl-skip')}catch(e){}`,
+          }}
+        />
       </head>
       <body>
+        <Loader />
         <InkDefs />
         <SiteDots />
         <SmoothScroll>{children}</SmoothScroll>

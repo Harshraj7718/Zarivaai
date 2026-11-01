@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { TestimonialsSection, type Testimonial } from "@/components/ui/testimonials-2";
-import Doodles from "@/components/sketch/Doodles";
 
 // SAMPLE quotes from fictional clients — replace with real, approved client testimonials before launch.
 const QUOTES: Testimonial[] = [
@@ -31,7 +30,6 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="sec testi">
-      <Doodles items={[{ kind: "star", left: "6%", top: "18%" }, { kind: "sparkle", left: "90%", top: "14%", size: 24 }, { kind: "leaf", left: "88%", top: "78%" }, { kind: "dot", left: "10%", top: "80%", size: 20 }]} />
       <div className="wrap">
         <div className="testi__head" data-reveal>
           <p className="kicker mono"><i />What clients say</p>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import CompanyMap from "@/components/company/CompanyMap";
 import "@/styles/company.css";
 import "@/styles/sketch.css";
+import "@/styles/polish.css";
 
 export const metadata: Metadata = {
   title: "Company map · Zariva.AI",

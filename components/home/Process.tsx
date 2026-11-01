@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import Crew from "@/components/sketch/Crew";
 
 const STEPS = [
   ["Discover", "We map your business, your systems and where growth is stuck."],
@@ -38,7 +37,6 @@ export default function Process() {
         </div>
         <div className="process">
           <div className="process__line"><i /></div>
-          <Crew kind="sprout" size={52} says="Growth takes time. Mine took three sprints." style={{ right: -6, top: -50 }} bubbleLeft />
           {STEPS.map(([h, p], i) => (
             <article key={h}><span className="process__n mono">{String(i + 1).padStart(2, "0")}</span><h3>{h}</h3><p>{p}</p></article>
           ))}

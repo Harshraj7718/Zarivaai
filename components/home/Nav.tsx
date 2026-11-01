@@ -48,7 +48,7 @@ export default function Nav() {
           Menu <span className="plus">+</span>
         </button>
         <a className="nav__cell hide-sm" href="#contact">Contact</a>
-        <a className="nav__cell nav__cell--dark" href="#contact">Get a free consult <span className="arr">→</span></a>
+        <a className="nav__cell nav__cell--dark" href="#contact"><span className="nav__cta-long">Get a free consult</span><span className="nav__cta-short">Free consult</span> <span className="arr">→</span></a>
       </nav>
       <AnimatePresence>
         {open && (

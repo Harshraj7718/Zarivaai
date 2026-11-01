@@ -58,16 +58,22 @@ export default function Hero() {
     if (paused) s.pauseAnimations(); else s.unpauseAnimations();
   }, [paused]);
 
-  // GSAP intro: copy rises in, then the diagram and cards, then the weekly bars grow
+  // GSAP intro: copy rises in, then the diagram and cards, then the weekly bars grow.
+  // It waits for the loading screen and starts as the screen lifts, so it plays in view.
   useGSAP(() => {
     const mm = gsap.matchMedia();
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.8 } });
+      const tl = gsap.timeline({ paused: true, defaults: { ease: "power3.out", duration: 0.8 } });
       tl.from(".hero__left > *", { y: 28, opacity: 0, stagger: 0.07 })
         .from(".harness", { scale: 0.92, opacity: 0, duration: 1 }, 0.15)
         .from(".overview, .perf", { y: 30, opacity: 0, stagger: 0.12 }, 0.45)
         .from(".bars b", { scaleY: 0, transformOrigin: "bottom", stagger: 0.07, duration: 0.7 }, 0.8)
         .from(".agents article", { y: 20, opacity: 0, stagger: 0.06, duration: 0.6 }, 0.6);
+      const play = () => { if (!tl.isActive() && tl.progress() === 0) tl.play(); };
+      if (window.__zarivaLoaded) play();
+      addEventListener("zariva:loaded:lifting", play);
+      addEventListener("zariva:loaded", play);
+      return () => { removeEventListener("zariva:loaded:lifting", play); removeEventListener("zariva:loaded", play); };
     });
   }, { scope: root });
 
@@ -82,9 +88,12 @@ export default function Hero() {
   return (
     <section id="top" className="hero sec" ref={root}>
       <div className="hero__left">
-        <Doodles items={[{ kind: "sparkle", left: "84%", top: "9%", size: 26 }, { kind: "leaf", left: "6%", top: "93%", size: 30 }, { kind: "code", left: "88%", top: "70%", size: 28 }]} />
-        <Crew kind="dot" size={56} says="I'm the dot in zariva. Hi!" style={{ right: "9%", top: "22%" }} bubbleLeft />
-        <InkLogo height={58} className="hero__logo" />
+        <Doodles items={[{ kind: "sparkle", left: "86%", top: "8%", size: 22 }]} />
+        {/* logo and Dot share one row, so Dot always sits just after the "ai" at any logo size */}
+        <div className="hero__brand">
+          <InkLogo height={58} className="hero__logo" />
+          <Crew kind="dot" size={40} says="I'm the dot in zariva. Hi!" />
+        </div>
         <p className="bracket mono">[ AI-powered technology & growth partner ]</p>
         <h1 className="hero__h1">
           <span className="h1__fixed">We engineer your</span>

@@ -330,3 +330,18 @@ body{background-image:var(--sk-grain);background-attachment:fixed}
 :root[data-theme="dark"] .theme-toggle__body{fill:var(--lime)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme-toggle__body{fill:var(--lime)}}
 @media (max-width:620px){.nav__cell--theme{padding:0 6px}.theme-toggle{width:34px;height:34px}}
+
+/* ---------- layout QA fixes (overlaps & contrast) ---------- */
+/* Dedicated team card: keep its light text (an equal-specificity .model li rule was winning) */
+.model.model--featured li,.model.model--featured .model__best{color:#c8d3c2}
+.model.model--featured .btn--dark .arr{color:var(--brand)}
+@media (max-width:980px){
+  /* stacked layouts: give each crew cameo its own space instead of sitting on text */
+  .ap__winwrap{margin-top:100px}
+  .process{margin-top:58px}
+  .consult__wrap{margin-top:84px}
+}
+@media (max-width:1239px){
+  /* below roomy laptop widths the gutters are too narrow and doodles land on text; the footer keeps its own */
+  .sec .doodles{display:none}
+}

@@ -28,3 +28,20 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
+
+/* ---------- first-visit loading screen (components/Loader) ---------- */
+.zl{position:fixed;inset:0;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;
+  background:radial-gradient(ellipse at 50% 45%,#0b3a0b 0%,#002200 60%,#001700 100%);color:#F1F1E9;clip-path:inset(0 0 0 0)}
+.zl-skip .zl{display:none}
+html.zl-active,html.zl-active body{overflow:hidden}
+.zl__mark{display:flex;flex-direction:column;align-items:center;gap:18px}
+.zl__logo{width:min(420px,72vw);height:auto;overflow:visible}
+.zl__logo text{font-family:var(--font-outfit),system-ui,sans-serif;font-weight:800;font-size:200px;fill:#F1F1E9}
+.zl__ai{font-size:66px!important;font-weight:500!important;fill:#FF9100!important}
+.zl__ri{fill:none;stroke:#79D900;stroke-width:31;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
+.zl__dot{fill:#FF9100}
+.zl__tag{margin:0;font-family:var(--font-geist-mono),monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,241,233,.7)}
+.zl__meta{display:flex;align-items:center;gap:14px;width:min(260px,60vw)}
+.zl__bar{flex:1;height:2px;border-radius:2px;background:rgba(241,241,233,.16);overflow:hidden}
+.zl__bar i{display:block;height:100%;background:#79D900;transform-origin:left;transform:scaleX(0)}
+.zl__pct{font-family:var(--font-geist-mono),monospace;font-size:11px;color:rgba(241,241,233,.7);min-width:3.2em;text-align:right}

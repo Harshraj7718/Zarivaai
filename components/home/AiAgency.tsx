@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Crew from "@/components/sketch/Crew";
 
 const STEPS = [
   { b: "Custom AI agents for support, sales and ops", s: "Agents trained on your product and policies, handing anything sensitive to a person." },
@@ -89,8 +88,7 @@ export default function AiAgency() {
               <button key={s.b} role="tab" aria-selected={i === k} onClick={() => setI(k)}><b>{s.b}</b><span>{s.s}</span></button>
             ))}
           </div>
-          <div className="relative">
-          <Crew kind="bolt" size={74} says="Beep! I draft. You approve." style={{ right: 26, top: -96 }} bubbleLeft />
+          <div className="relative ap__winwrap">
           <div className="win ap__win">
             <div className="win__bar mono small"><span>{META[i][0]}</span><span className="live"><i />Running</span></div>
             <AnimatePresence mode="wait" initial={false}>

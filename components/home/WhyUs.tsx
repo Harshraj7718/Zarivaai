@@ -2,14 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import Doodles from "@/components/sketch/Doodles";
 
 const REASONS = [
-  { h: "One partner, full stack", p: "From SaaS builds to daily marketing ops, one team handles the technology and the growth.", tag: "</>", color: "lime", tilt: -3 },
-  { h: "AI-first execution", p: "We bring automation and AI agents into the workflow, not just the pitch deck.", tag: "✦", color: "brand", tilt: 2.5 },
-  { h: "Dedicated teams", p: "A consistent team that knows your product, not a rotating freelancer pool.", tag: "◎", color: "peach", tilt: -1.5 },
-  { h: "Built to scale", p: "Architecture and operations designed for where your business is headed, not just where it is today.", tag: "↗", color: "lemon", tilt: 3 },
-  { h: "Global, remote-first", p: "Clients across the USA, Europe and beyond, with one way of working in every time zone.", tag: "◍", color: "mint", tilt: -2.5 },
+  { h: "One partner, full stack", p: "From SaaS builds to daily marketing ops, one team handles the technology and the growth.", tag: "</>", color: "lime", tilt: -1.2 },
+  { h: "AI-first execution", p: "We bring automation and AI agents into the workflow, not just the pitch deck.", tag: "✦", color: "brand", tilt: 1 },
+  { h: "Dedicated teams", p: "A consistent team that knows your product, not a rotating freelancer pool.", tag: "◎", color: "peach", tilt: -0.6 },
+  { h: "Built to scale", p: "Architecture and operations designed for where your business is headed, not just where it is today.", tag: "↗", color: "lemon", tilt: 1.2 },
+  { h: "Global, remote-first", p: "Clients across the USA, Europe and beyond, with one way of working in every time zone.", tag: "◍", color: "mint", tilt: -1 },
 ];
 
 /** "Why Zariva.AI" as a board of sticky notes. All five are visible at once; on desktop you can drag them around. */
@@ -24,7 +23,6 @@ export default function WhyUs() {
 
   return (
     <section id="why-us" className="sec why">
-      <Doodles items={[{ kind: "sparkle", left: "4%", top: "14%", size: 24 }, { kind: "star", left: "94%", top: "70%" }]} />
       <div className="wrap">
         <div className="why__head" data-reveal>
           <div>

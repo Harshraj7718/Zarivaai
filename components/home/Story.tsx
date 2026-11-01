@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Doodles from "@/components/sketch/Doodles";
 
 const STEPS = ["The first version", "The first customer", "Systems that hold up under real use", "Marketing live on every channel", "Still here after launch"];
 const wait = (ms: number) => new Promise(r => setTimeout(r, ms));
@@ -36,7 +35,6 @@ export default function Story() {
 
   return (
     <section id="story" className="sec">
-      <Doodles items={[{ kind: "star", left: "4%", top: "12%" }, { kind: "chart", left: "46%", top: "80%", size: 32 }, { kind: "dot", left: "93%", top: "8%", size: 22 }]} />
       <div className="wrap story">
         <div data-reveal>
           <p className="kicker mono"><i />Our story</p>

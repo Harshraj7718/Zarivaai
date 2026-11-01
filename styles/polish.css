@@ -1,0 +1,110 @@
+/* =====================================================================
+   Zariva.AI — "polished sketch" layer. Loaded last on every page.
+   Keeps the brand's hand-drawn character (ink logo, marker highlights,
+   squiggle links, footer crew) but brings it to a professional rhythm:
+   one type scale, one spacing scale, one radius system, thin ink borders,
+   soft depth, no tilting cards and no jittering line-boil on content.
+   ===================================================================== */
+:root{
+  --sk-w:1.5px;
+  --sk-r:16px;                       /* cards, windows, panels */
+  --sk-r-sm:10px;                    /* rows, chips, inputs, small cards */
+  --sk-shadow:0 1px 2px rgba(0,34,0,.05),0 16px 36px -22px rgba(0,34,0,.35);
+  --sk-shadow-lime:0 1px 2px rgba(0,34,0,.05),0 16px 36px -22px rgba(0,34,0,.35);
+  --sk-lift:0 2px 0 var(--sk-ink);   /* the one hand-drawn accent: a small ink baseline under interactive things */
+  --section-y:clamp(80px,9vw,128px);
+}
+:root[data-theme="dark"]{--sk-shadow:0 1px 2px rgba(0,0,0,.4),0 18px 40px -22px rgba(0,0,0,.8);--sk-shadow-lime:var(--sk-shadow)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sk-shadow:0 1px 2px rgba(0,0,0,.4),0 18px 40px -22px rgba(0,0,0,.8);--sk-shadow-lime:var(--sk-shadow)}}
+
+/* ---------- motion & texture: calm ---------- */
+.boil{filter:none!important}                       /* no jittering lines on page content (the footer keeps its own) */
+.kicker i{animation:none}                          /* static star */
+body{background-image:none}                        /* the dot pattern already gives the paper texture */
+
+/* ---------- section rhythm & dividers ---------- */
+.wrap{padding-top:var(--section-y);padding-bottom:var(--section-y)}
+.sec::after{height:1px;bottom:0;background:var(--rule);opacity:1;-webkit-mask:none;mask:none}
+
+/* ---------- type scale ---------- */
+.kicker{font-size:12px;letter-spacing:.1em;margin-bottom:18px;color:var(--muted)}
+.h2{font-size:clamp(30px,3.5vw,46px);line-height:1.06;letter-spacing:-.032em;max-width:21ch;margin-bottom:18px;filter:none}
+.sub{font-size:17px;line-height:1.6;max-width:58ch;margin-bottom:44px}
+.lead{font-size:clamp(17px,1.35vw,19px);line-height:1.6}
+.side h1,.memory h2,.zo__num{filter:none}
+.h2 .soft,.hero__h1 .soft{background-size:100% .3em;background-position:0 94%}
+.panel__copy h3,.model h3,.who-grid h3,.process h3{letter-spacing:-.022em}
+
+/* ---------- cards & windows: thin ink, one radius, soft depth, no tilt ---------- */
+.card,.win,.panels,.region-card,.chat,.app,.overview,.consult,.zo,.testi__card,.paper{border-width:var(--sk-w)!important;border-radius:var(--sk-r)!important;box-shadow:var(--sk-shadow)!important}
+.perf{border-radius:var(--sk-r)!important;box-shadow:var(--sk-shadow)!important}
+.stats div,.kanban__col,.roadmap__col,.cal__day,.msg,.draft,.mail,.model{border-radius:var(--sk-r-sm)!important}
+.tabs button,.regions__list button,.ap__steps button{border-radius:var(--sk-r-sm)!important}
+.tabs button[aria-selected="true"],.regions__list button[aria-selected="true"],.ap__steps button[aria-selected="true"]{transform:none!important;box-shadow:var(--sk-lift)!important}
+.tabs button[aria-selected="true"]::before,.ap__steps button[aria-selected="true"] b::before{background:var(--lime)}
+.model--featured{transform:none}
+.model:hover,.model--featured:hover{transform:translateY(-3px);box-shadow:var(--sk-shadow)}
+.testi__card figure>div:first-child{transform:none}
+.testi__card::after{border-width:var(--sk-w)}
+.paper{box-shadow:var(--sk-shadow)!important}
+
+/* ---------- buttons: pills that lift, never tilt ---------- */
+.btn,.zf-btn,.top__cta{border-width:var(--sk-w)}
+.btn:hover,.btn--dark:hover,.top__cta:hover,.theme-toggle:hover,.why__nav button:hover,.testi__btn:hover,.chip-btn:hover,.pill:hover{transform:translateY(-2px)!important}
+.btn{box-shadow:var(--sk-lift)}
+.btn--dark{box-shadow:0 2px 0 var(--lime)}
+.btn:hover{box-shadow:0 4px 0 var(--sk-ink)}
+.btn--dark:hover{box-shadow:0 4px 0 var(--lime)}
+.btn:hover .arr,.nav__cell--dark:hover .arr{animation:none;transform:translateX(3px)}
+.theme-toggle{border-width:var(--sk-w);box-shadow:var(--sk-lift)}
+.theme-toggle:hover{background:var(--surface-2);color:var(--ink)}
+
+/* ---------- hero ---------- */
+.hero__logo{transform:none}
+.hero__logo:hover{transform:scale(1.03)}
+.hero__left{padding-top:clamp(48px,6vw,80px);padding-bottom:clamp(48px,6vw,72px)}
+.hero__h1{letter-spacing:-.04em}
+
+/* ---------- small refinements ---------- */
+.stamp{transform:none;border-width:1.5px;border-radius:6px}
+.stepper li.on{transform:none}
+.why-card:hover{transform:translateY(-3px)}
+.note{box-shadow:0 1px 2px rgba(0,34,0,.08),0 14px 24px -16px rgba(0,34,0,.35)}
+.consult input,.consult select,.consult textarea{border-width:1.5px;border-radius:var(--sk-r-sm)}
+.nav{border-bottom:1px solid var(--rule)}
+.dock{border-width:var(--sk-w);box-shadow:0 10px 30px -12px rgba(0,34,0,.45)}
+
+/* ---------- industries strip (components/home/Industries) ---------- */
+.industries{border-bottom:1px solid var(--rule)}
+.industries__in{max-width:1180px;margin:0 auto;padding:30px var(--pad);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.industries__label{margin:0;color:var(--muted);font-size:12px;letter-spacing:.1em;white-space:nowrap}
+.industries__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);border-left:1px solid var(--rule)}
+.industries__list li{display:flex;align-items:center;gap:10px;padding:6px 16px;border-right:1px solid var(--rule);font-weight:500;font-size:14.5px;color:var(--ink)}
+.industries__list svg{flex:none;width:22px;height:22px;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:1100px){.industries__in{grid-template-columns:1fr;gap:14px}.industries__list{grid-template-columns:repeat(3,1fr);border-left:0}.industries__list li{border-right:0;border-top:1px solid var(--rule);padding:12px 4px}}
+@media (max-width:620px){.industries__list{grid-template-columns:1fr 1fr}}
+.hero__logo{margin-bottom:24px}
+/* industries: label above, items on one line each */
+.industries__in{grid-template-columns:1fr;gap:14px;padding-top:28px;padding-bottom:28px}
+.industries__list{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 28px;border-left:0}
+.industries__list li{white-space:nowrap;border:0!important;padding:4px 0}
+@media (max-width:620px){.industries__list{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}.industries__list li{white-space:normal}}
+/* narrow screens: the single hero column must be allowed to shrink below its content's natural width,
+   and the headline scales with the viewport so the longest rotating word ("SaaS platform.") always fits */
+@media (max-width:980px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .hero__left,.hero__right{min-width:0}
+}
+@media (max-width:520px){
+  .hero__h1{font-size:clamp(28px,9.4vw,40px)}
+  .rot{max-width:100%}
+}
+/* nav call-to-action: one line at every width */
+.nav__cell{white-space:nowrap}
+.nav__cta-short{display:none}
+@media (max-width:520px){.nav__cta-long{display:none}.nav__cta-short{display:inline}.nav__cell--dark{padding:0 12px}}
+/* hero brand row: logo + Dot side by side (Dot is no longer absolutely placed) */
+.hero__brand{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.hero__brand .hero__logo{margin-bottom:0}
+.hero__brand .crew{position:relative;left:auto;top:auto;flex:none;transform:translateY(-6px)}
+@media (max-width:620px){.hero__brand{gap:10px}.hero__brand .crew{width:34px!important}.hero__brand .crew svg{width:34px;height:auto}}

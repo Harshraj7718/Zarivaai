@@ -1,5 +1,4 @@
 import PaperReveal from "@/components/sketch/PaperReveal";
-import Doodles from "@/components/sketch/Doodles";
 
 const MODELS = [
   {
@@ -29,7 +28,6 @@ const MODELS = [
 export default function WorkWithUs() {
   return (
     <section id="work-with-us" className="sec work">
-      <Doodles items={[{ kind: "star", left: "5%", top: "8%" }, { kind: "cog", left: "92%", top: "10%", size: 32 }, { kind: "leaf", left: "3%", top: "86%" }]} />
       <div className="wrap work__head" data-reveal>
         <p className="kicker mono"><i />Ways to work with us</p>
         <h2 className="h2">Pick the shape that fits. <span className="soft">Change it as you grow.</span></h2>

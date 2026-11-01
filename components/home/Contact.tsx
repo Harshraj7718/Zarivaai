@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Crew from "@/components/sketch/Crew";
-import Doodles from "@/components/sketch/Doodles";
 import Eyes from "@/components/sketch/Eyes";
 
 const SERVICES = ["SaaS product engineering", "AI agents & automation", "Digital marketing", "Social media management", "CRM & ERP systems", "Web & app development", "Business process operations", "Consulting & product growth", "Not sure yet"];
@@ -28,7 +26,6 @@ export default function Contact() {
 
   return (
     <section id="contact" className="sec final">
-      <Doodles items={[{ kind: "leaf", left: "4%", top: "10%" }, { kind: "star", left: "42%", top: "16%", size: 24 }, { kind: "code", left: "8%", top: "78%" }, { kind: "bolt", left: "47%", top: "70%" }]} />
       <div className="wrap final__grid">
         <div data-reveal>
           <p className="kicker mono"><i />Contact</p>
@@ -43,8 +40,7 @@ export default function Contact() {
           </div>
           <p className="micro mono">Or write to <a href="mailto:hello@zariva.ai">hello@zariva.ai</a></p>
         </div>
-        <div className="relative" data-reveal>
-        <Crew kind="byte" size={66} says="Ship it! (After the tests pass.)" style={{ right: 34, top: -62 }} bubbleLeft />
+        <div className="relative consult__wrap" data-reveal>
         <form className="win consult" noValidate onSubmit={submit}>
           <div className="win__bar mono small"><span>Free consult</span><span className="dots">− □ ×</span></div>
           <div className="consult__body">

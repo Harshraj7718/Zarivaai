@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { initGlobe } from "@/lib/engines/globe";
-import Doodles from "@/components/sketch/Doodles";
 
 const REGIONS = [
   { id: "usa", flag: "US", name: "United States", cities: "New York · San Francisco · Austin · Chicago · Toronto",
@@ -52,7 +51,6 @@ export default function GlobalReach() {
   const r = REGIONS[active];
   return (
     <section id="global" className="sec global">
-      <Doodles items={[{ kind: "star", left: "90%", top: "6%" }, { kind: "sparkle", left: "3%", top: "30%", size: 24 }, { kind: "dot", left: "48%", top: "92%", size: 20 }]} />
       <div className="wrap">
         <div data-reveal>
           <p className="kicker mono"><i />Global reach</p>

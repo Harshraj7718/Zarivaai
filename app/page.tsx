@@ -9,12 +9,14 @@ import Process from "@/components/home/Process";
 import Contact from "@/components/home/Contact";
 import Testimonials from "@/components/home/Testimonials";
 import WorkWithUs from "@/components/home/WorkWithUs";
+import Industries from "@/components/home/Industries";
 import Dock from "@/components/home/Dock";
 import Reveals from "@/components/home/Reveals";
 import DoodleFooter from "@/components/DoodleFooter";
 import "@/styles/site.css";
 import "@/styles/footer.css";
 import "@/styles/sketch.css";
+import "@/styles/polish.css";
 
 export default function Home() {
   return (
@@ -23,6 +25,7 @@ export default function Home() {
       <Nav />
       <main id="main">
         <Hero />
+        <Industries />
         <Story />
         <Services />
         <AiAgency />

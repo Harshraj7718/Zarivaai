@@ -1,27 +1,9 @@
-"use client";
-
-import { useEffect } from "react";
-
 /**
  * Site-wide SVG filters for the sketchbook theme (same recipe as the doodle footer):
- *  - #ink-head: dry-brush ink for big headings (rough edges + a few streaks)
- *  - #boil0..2: three hand-drawn "takes" that are swapped 8 times a second on every `.boil` element
+ *  - #ink-head: dry-brush ink for the hero headline and the logo
+ *  - #boil0..2: hand-drawn "takes", kept for opt-in use; the polished theme no longer animates them on page content
  */
 export default function InkDefs() {
-  useEffect(() => {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    // Swap one CSS variable on <html> (read by `.boil { filter: var(--boil) }`), so React-rendered
-    // elements are never touched directly and hydration stays clean.
-    const root = document.documentElement;
-    let k = 0;
-    const t = setInterval(() => {
-      if (document.hidden) return;
-      k = (k + 1) % 3;
-      root.style.setProperty("--boil", `url(#boil${k})`);
-    }, 125);
-    return () => { clearInterval(t); root.style.removeProperty("--boil"); };
-  }, []);
-
   return (
     <svg width="0" height="0" aria-hidden="true" style={{ position: "absolute", width: 0, height: 0, overflow: "hidden" }}>
       <defs>
